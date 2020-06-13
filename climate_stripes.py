@@ -43,6 +43,7 @@ da['Mean-Temperature-Regional-Expectation'] = df.groupby(df['Year']).mean()['Tem
 da['Mean-Anomaly-Regional-Expectation'] = df.groupby(df['Year']).mean()['Anomaly-Regional-Expectation'].values
 
 da = da[da['Year']>1900]
+#da = da[da['Year']>1978] # ERA-5
 
 # Calculate 1971-2000 mean
     
@@ -212,6 +213,7 @@ sm.set_array([])
 cbar = plt.colorbar(sm, shrink=0.5)
 cbar.set_label('Regional Expectation (relative to 1971-2000 mean)', rotation=270, labelpad=25)
 plt.title('Mean annual temperature anomaly: Cottbus (Berkeley-Earth)')
+#plt.title('Mean annual temperature anomaly: Cottbus (Berkeley-Earth) 1979-2013') # ERA-5 comparison
 plt.savefig('cottbus-berkeley-earth-Mean-Anomaly-Regional-Expectation-stripes.png')
 
 #--------------------------------------------------------------------------
