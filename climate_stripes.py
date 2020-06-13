@@ -42,6 +42,8 @@ da['Mean-Anomaly-Adjusted'] = df.groupby(df['Year']).mean()['Anomaly-Adjusted'].
 da['Mean-Temperature-Regional-Expectation'] = df.groupby(df['Year']).mean()['Temperature-Regional-Expectation'].values
 da['Mean-Anomaly-Regional-Expectation'] = df.groupby(df['Year']).mean()['Anomaly-Regional-Expectation'].values
 
+da = da[da['Year']>1900]
+
 # Calculate 1971-2000 mean
     
 mu_temperature_raw = da[(da['Year']>1970) & (da['Year']<2001)]['Mean-Temperature-Raw'].mean()
@@ -53,12 +55,12 @@ mu_anomaly_regional_expectation = da[(da['Year']>1970) & (da['Year']<2001)]['Mea
 
 # Compute standard deviation of the annual average temperatures between 1901-2000: color range +/- 2.6 standard deviations 
 
-sigma_temperature_raw = da[(da['Year']>1970) & (da['Year']<2001)]['Mean-Temperature-Raw'].std()
-sigma_temperature_adjusted = da[(da['Year']>1970) & (da['Year']<2001)]['Mean-Temperature-Adjusted'].std()
-sigma_temperature_regional_expectation = da[(da['Year']>1970) & (da['Year']<2001)]['Mean-Temperature-Regional-Expectation'].std()
-sigma_anomaly_raw = da[(da['Year']>1970) & (da['Year']<2001)]['Mean-Anomaly-Raw'].std()
-sigma_anomaly_adjusted = da[(da['Year']>1970) & (da['Year']<2001)]['Mean-Anomaly-Adjusted'].std()
-sigma_anomaly_regional_expectation = da[(da['Year']>1970) & (da['Year']<2001)]['Mean-Anomaly-Regional-Expectation'].std()
+sigma_temperature_raw = da[(da['Year']>1900) & (da['Year']<2001)]['Mean-Temperature-Raw'].std()
+sigma_temperature_adjusted = da[(da['Year']>1900) & (da['Year']<2001)]['Mean-Temperature-Adjusted'].std()
+sigma_temperature_regional_expectation = da[(da['Year']>1900) & (da['Year']<2001)]['Mean-Temperature-Regional-Expectation'].std()
+sigma_anomaly_raw = da[(da['Year']>1900) & (da['Year']<2001)]['Mean-Anomaly-Raw'].std()
+sigma_anomaly_adjusted = da[(da['Year']>1900) & (da['Year']<2001)]['Mean-Anomaly-Adjusted'].std()
+sigma_anomaly_regional_expectation = da[(da['Year']>1900) & (da['Year']<2001)]['Mean-Anomaly-Regional-Expectation'].std()
 
 #------------------------------------------------------------------------------
 # Mean Annual Temperature - Comparison plot
